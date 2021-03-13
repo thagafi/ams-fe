@@ -1,0 +1,57 @@
+<section id="extended">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                       <div class="col-6">
+                            <h4 class="card-title">قائمة الأسراب</h4>
+                       </div>
+                       <div class="col-6">
+                            <h4 class="card-title">
+                                <button type="button" class="btn btn-outline-info mr-2 mb-1" routerLink="/formations/squads/create"><i class="ft-plus-square ml-1"></i>إضافة سرب جديد</button>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="card-body table-responsive">
+                        <table class="table text-center m-0">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>اسم السرب</th>
+                                    <th>الجناح</th>
+                                    <th>قائد السرب</th>
+                                    <th>منسق السرب</th>
+                                    <th>الإجراء</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let squad of squads">
+                                    <td>{{squad.id}}</td>
+                                    <td>{{squad.Squad_name}}</td>
+                                    <td>{{squad.wing.wing_name}}</td>
+                                    <td>{{squad.Squad_commander.rank}} {{squad.Squad_commander.first_name}} {{squad.Squad_commander.last_name}}</td>
+                                    <td>{{squad.Squad_coordinator.rank}} {{squad.Squad_coordinator.first_name}} {{squad.Squad_coordinator.last_name}}</td>
+                                    <td class="text-truncate">
+                                        <a href="javascript:;" (click)="delete(squad.id)" class="danger p-0">
+                                            <i class="ft-x font-medium-3 mr-2"></i>
+                                        </a>
+                                        <a href="javascript:;" [routerLink]="['/formations/squads', squad.id, 'edit']" class="info p-0">
+                                            <i class="ft-edit-2 font-medium-3 "></i>
+                                        </a>                                        
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <app-paginator
+        [lastPage]="lastPage"
+        (pageChanged)="load($event)"
+    ></app-paginator> -->
+</section>

@@ -1,0 +1,92 @@
+<section id="action-form-layout">
+    <div class="row match-height">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">تسجيل جهاز حاسب آلي جديد</h4>
+                </div>
+                <div class="card-content">
+                    <div class="card-body">
+                        <form [formGroup]="form" (submit)="submit()">
+                            <div class="form-row">
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group position-relative">
+                                        <label for="form-action-1">اسم الجهاز</label>
+                                        <input formControlName="computer_name" type="text" id="form-action-3" class="form-control" placeholder="راجع دليل تسمية الجهاز حسب الجناح" name="pc-name">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group position-relative">
+                                        <label for="form-action-2">السرب</label>
+                                        <select name="squad" class="form-select" formControlName="squad">
+                                            <option disabled hidden value>اختر السرب</option>
+                                            <option *ngFor="let squad of squads" [ngValue]="squad.id">
+                                                {{squad.Squad_name}}/{{squad.wing.wing_name}}
+                                            </option>
+                                         </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group position-relative">
+                                        <label for="form-action-3">نوع المعالج</label>
+                                        <select name="squad" class="form-select" formControlName="cpu">
+                                            <option disabled hidden value>اختر نوع المعالج</option>
+                                            <option *ngFor="let cpu of cpus" [ngValue]="cpu.id">
+                                                {{cpu.type}}
+                                            </option>
+                                         </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group position-relative">
+                                        <label for="form-action-4">حجم الذاكرة</label>
+                                        <select name="ram" class="form-select" formControlName="ram">
+                                            <option disabled hidden value>اختر الحجم</option>
+                                            <option *ngFor="let ram of rams" [ngValue]="ram.id">
+                                                {{ram.size}}
+                                            </option>
+                                         </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group position-relative">
+                                        <label for="form-action-5">حجم الشاشة</label>
+                                        <select name="monitor" class="form-select" formControlName="monitor_size">
+                                            <option disabled hidden value>اختر الحجم</option>
+                                            <option *ngFor="let monitor of monitors" [ngValue]="monitor.id">
+                                                {{monitor.monitor}}
+                                            </option>
+                                         </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group position-relative">
+                                        <label for="form-action-6">نظام التشغيل</label>
+                                        <select name="os" class="form-select" formControlName="os">
+                                            <option disabled hidden value>اختر نوع نظام التشغيل</option>
+                                            <option *ngFor="let os of oss" [ngValue]="os.id">
+                                                {{os.os}}
+                                            </option>
+                                         </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group position-relative">
+                                        <label for="form-action-7">الشركة المصنعة</label>
+                                        <select name="brand" class="form-select" formControlName="brand">
+                                            <option disabled hidden value>اختر الشركة المصنعة</option>
+                                            <option *ngFor="let brand of brands" [ngValue]="brand.id">
+                                                {{brand.company}}
+                                            </option>
+                                         </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary mr-2">تسجيل معلومات الجهاز</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

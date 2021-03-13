@@ -1,0 +1,104 @@
+<!-- Row Details  Datatables -->
+<section id="ngx-datatable-filter">
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title">تفاصيل أجهزة الحاسب الآلي</h4>
+          </div>
+          <div class="card-content">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-6">
+                  <fieldset class="form-group">
+                    <label for="ngx-filter-ref">البحث:
+                      <input id="ngx-filter-ref" class="form-control form-control-sm d-inline-block width-200" type="text"
+                        placeholder="" (keyup)="filterUpdate($event)" />
+                    </label>
+                  </fieldset>
+                </div>
+                <div class="col-6">
+                     <h4 class="card-title">
+                      <button type="button" class="btn btn-outline-info mr-2 mb-1" href="javascript:void(0)" (click)="export()"><i class="ft-download ml-1"></i>تنزيل كامل البيانات CSV</button>
+                     </h4>
+                 </div>
+             </div>
+              
+              
+              <!-- ngx-datatable-row-details -->
+              <ngx-datatable
+              #myTable 
+              #tableRowDetails 
+              class="material" 
+              [columnMode]="ColumnMode.force"
+              [headerHeight]="50" 
+              [footerHeight]="50" 
+              [rowHeight]="50" 
+              [limit]="10" 
+              [rows]="rows" 
+              (page)="onPage($event)">
+
+                <!-- Row Detail Template -->
+                <ngx-datatable-row-detail [rowHeight]="80" #myDetailRow (toggle)="onDetailToggle($event)">
+                  <ng-template let-row="row" let-expanded="expanded" ngx-datatable-row-detail-template>
+                    <div class="ml-5 my-1">
+                      <div><strong>مدخل بواسطة: </strong></div>
+                      <div> {{ row.user.first_name }} {{ row.user.last_name }}</div>
+                    </div>
+                  </ng-template>
+                </ngx-datatable-row-detail>
+
+                <ngx-datatable-column [width]="50" 
+                [resizeable]="false" 
+                [sortable]="false" 
+                [draggable]="false"
+                [canAutoResize]="false">
+                  <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
+                    <a 
+                    href="javascript:void(0)" 
+                    [class.datatable-icon-left]="!expanded"
+                    [class.datatable-icon-down]="expanded" 
+                    title="Expand/Collapse Row"
+                      (click)="toggleExpandRow(row)">
+                    </a>
+                  </ng-template>
+                </ngx-datatable-column>
+                <!-- Row Column Template -->
+                 <!-- Group Header Template -->
+                 <!-- <ngx-datatable-group-header [rowHeight]="50" #myGroupHeader (toggle)="onDetailToggle($event)">
+                  <ng-template let-group="row.wing" let-expanded="expanded" ngx-datatable-group-header-template>
+                    <div style="padding-right:5px;">
+                      <a
+                        href="#"
+                        [class.datatable-icon-right]="!expanded"
+                        [class.datatable-icon-down]="expanded"
+                        title="Expand/Collapse Group"
+                        (click)="toggleExpandGroup(group)"
+                      >
+                        <b>الجناح: {{ group.value[0].wing.wing_name }}</b>
+                      </a>
+                    </div>
+                  </ng-template>
+                </ngx-datatable-group-header> -->
+
+                <ngx-datatable-column name="اسم الجهاز" prop="computer_name" [width]="80">
+                  <ng-template let-row="row" let-expanded="expanded" let-name="value" ngx-datatable-cell-template>
+                    <strong>{{row.computer_name }}</strong>
+                  </ng-template>
+                </ngx-datatable-column>
+                <ngx-datatable-column name="الجناح" prop="squad.wing.wing_name" [width]="50"></ngx-datatable-column>
+                <ngx-datatable-column name="السرب" prop="squad.Squad_name" [width]="50"></ngx-datatable-column>
+                <ngx-datatable-column name="الإجراء" [width]="20">
+                  <ng-template ngx-datatable-cell-template>
+                    <i  [routerLink]="['/computersedit']" class="ft-edit text-primary cursor-pointer"></i>
+                  </ng-template>
+                </ngx-datatable-column>
+              </ngx-datatable>
+              <!-- ngx-datatable-row-details -->
+  
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

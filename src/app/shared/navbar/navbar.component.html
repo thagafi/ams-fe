@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-lg navbar-light header-navbar"
+  [ngClass]="{'navbar-brand-center': menuPosition === 'Top', 'navbar-static': menuPosition === 'Side' &&
+  config?.layout.navbar.type === 'Static' , 'navbar-sticky': menuPosition === 'Side' &&
+  config?.layout.navbar.type === 'Fixed', 'fixed-top': isSmallScreen && menuPosition === 'Top'}">
+  <div class="container-fluid navbar-wrapper">
+    <div class="navbar-header d-flex">
+      {{ today | date }} @ {{today | date:'h:mm a'}}
+    </div>
+    <div class="navbar-container">
+      <div class="collapse navbar-collapse d-block" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+          
+          <li class="dropdown nav-item ml-1" placement="bottom-right" display="static" ngbDropdown >
+            <a class="nav-link dropdown-toggle user-dropdown d-flex align-items-end" id="dropdownBasic2"
+              href="javascript:;" data-toggle="dropdown" ngbDropdownToggle>
+              <div class="user d-md-flex d-none ml-2">
+                <span class="text-left">{{user?.rank}}: {{user?.first_name}} {{user?.second_name}} {{user?.third_name}} {{user?.last_name}}</span><span
+                  class="text-left text-muted font-small-3">{{user?.username}}</span>
+              </div>
+              <img class="avatar" src="assets/img/portrait/small/avatar.jpg" alt="avatar" height="50" width="50" />
+            </a>
+            <div class="dropdown-menu text-right dropdown-menu-left m-0 pb-0" aria-labelledby="dropdownBasic2"
+              ngbDropdownMenu>
+              
+              <a class="dropdown-item" href="javascript:;" routerLink="profile">
+                <div class="d-flex align-items-center">
+                  <i class="ft-edit ml-2"></i><span>تعديل البيانات</span>
+                </div>
+              </a>
+              
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="javascript:void(0)" (click)="logout()">
+                <div class="d-flex align-items-center">
+                  <i class="ft-power ml-2"></i><span>تسجيل الخروج</span>
+                </div>
+              </a>
+            </div>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+</nav>

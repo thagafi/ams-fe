@@ -1,0 +1,97 @@
+<section id="basic-hidden-label-form-layouts">
+    <div class="row match-height">
+      <!-- Basic Form starts -->
+      <div class="col-lg-6 col-12">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title">تعديل البيانات الشخصية</h4>
+          </div>
+          <div class="card-content">
+            <div class="card-body">
+              <p>استخدم هذا النموذج لتعديل بياناتك الشخصية</p>
+              <form [formGroup]="infoForm" (submit)="infoSubmit()">
+                <div class="form-row">
+                  <div class="col-md-6 col-12">
+                    <div class="form-group mb-2">
+                      <label for="basic-form-1">الإسم الأول</label>
+                      <input formControlName="first_name" type="text" id="basic-form-1" class="form-control" name="first_name">
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-12">
+                    <div class="form-group mb-2">
+                      <label for="basic-form-2">إسم الأب</label>
+                      <input formControlName="second_name" type="text" id="basic-form-2" class="form-control" name="second_name">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="col-md-6 col-12">
+                    <div class="form-group mb-2">
+                      <label for="basic-form-1">إسم الجد</label>
+                      <input formControlName="third_name" type="text" id="basic-form-3" class="form-control" name="third_name">
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-12">
+                    <div class="form-group mb-2">
+                      <label for="basic-form-2">إسم العائلة</label>
+                      <input formControlName="last_name" type="text" id="basic-form-4" class="form-control" name="last_name">
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="form-group mb-2">
+                  <label for="basic-form-5">الرتبة</label>
+                  <select formControlName="rank" id="basic-form-6" name="اختر من القائمة" class="form-control">
+                    <option value="none" selected disabled>اختر من القائمة</option>
+                    <option value="اللواء">اللواء</option>
+                    <option value="العميد">العميد</option>
+                    <option value="العقيد">العقيد</option>
+                    <option value="المقدم">المقدم</option>
+                    <option value="الرائد">الرائد</option>
+                    <option value="النقيب">النقيب</option>
+                    <option value="الملازم الأول">الملازم الأول</option>
+                    <option value="الملازم">الملازم</option>
+                    <option value="الرئيس الرقباء">الرئيس الرقباء</option>
+                    <option value="الرقيب الأول">الرقيب الأول</option>
+                    <option value="الرقيب">الرقيب</option>
+                    <option value="الوكيل الرقيب">الوكيل الرقيب</option>
+                    <option value="العريف">العريف</option>
+                    <option value="الجندي الأول">الجندي الأول</option>
+                    <option value="الجندي">الجندي</option>
+                    <option value="المتعاقد">المتعاقد</option>
+                  </select>
+                </div>              
+                <button type="button" class="btn btn-info mr-2"><i class="ft-check-square ml-1"></i>تحديث البيانات الشخصية</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Basic Form ends -->
+      <!-- Hidden Label starts -->
+      <div class="col-lg-6 col-12">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title">تعديل كلمة المرور</h4>
+          </div>
+          <div class="card-content">
+            <div class="card-body">
+              <p>استخدم هذا النموذج لتحديث كلمة المرور الخاصة بك</p>
+              <form [formGroup]="passwordForm">
+                <div class="form-group">
+                  <label class="sr-only" for="hidden-label-form-1">كلمة المرور</label>
+                  <input formControlName="password" type="password" id="hidden-label-form-1" class="form-control" name="password" placeholder="كلمة المرور">
+                </div>
+                <div class="form-group">
+                  <label class="sr-only" for="hidden-label-form-2">تأكيد كلمة المرور</label>
+                  <input formControlName="password_confirm" type="password" id="hidden-label-form-2" class="form-control" name="password_confirm" placeholder="تأكيد كلمة المرور">
+                </div>
+                <a type="button" (submit)="passwordSubmit()" class="btn btn-info mr-2"><i class="ft-check-square ml-1"></i>تحديث كلمة المرور</a>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Hidden Label ends -->
+    </div>
+  </section>

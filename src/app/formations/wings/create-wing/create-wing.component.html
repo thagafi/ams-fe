@@ -1,0 +1,48 @@
+<section id="action-form-layout">
+    <div class="row match-height">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">تسجيل جناح أو قسم رئيسي</h4>
+                </div>
+                <div class="card-content">
+                    <div class="card-body">
+                        <form novalidate="" (submit)="submit()" [formGroup]="form">
+                            <div class="form-row">
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group position-relative">
+                                        <label for="form-action-1">اسم الجناح</label>
+                                        <input formControlName="wing_name" type="text" id="form-action-3" class="form-control" placeholder="اسم الجناح" name="wing-name">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group position-relative">
+                                        <label for="form-action-2">قائد الجناح</label>
+                                        <select id="form-action-2" name="wing_commander" class="form-control" formControlName="wing_commander">
+                                            <option disabled hidden value>اختر قائد الجناح</option>
+                                            <option *ngFor="let user of users" [ngValue]="user.id">
+                                                {{user.rank}} {{user.first_name}} {{user.second_name}} {{user.third_name}} {{user.last_name}} ({{user.username}})
+                                            </option>
+                                         </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group position-relative">
+                                        <label for="form-action-3">اختر منسق الجناح</label>
+                                        <select id="form-action-3" name="wing_coordinator" class="form-control" formControlName="wing_coordinator">
+                                            <option disabled hidden value>اختر منسق الجناح</option>
+                                            <option *ngFor="let user of users" [ngValue]="user.id">
+                                                {{user.rank}} {{user.first_name}} {{user.second_name}} {{user.third_name}} {{user.last_name}} ({{user.username}})
+                                            </option>
+                                         </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary mr-2">تسجيل معلومات الجناح</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

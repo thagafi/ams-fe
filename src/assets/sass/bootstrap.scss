@@ -1,0 +1,9 @@
+@import '../../../node_modules/@laylazi/bootstrap-rtl-scss/scss/functions';
+
+@import 'core/variables/variables';
+// @import '../../assets/scss/variables';
+@import '../../../node_modules/@laylazi/bootstrap-rtl-scss/scss/variables-rtl';
+
+@import '~bootstrap/scss/bootstrap';
+
+@import '../../../node_modules/@laylazi/bootstrap-rtl-scss/scss/bootstrap-rtl.scss'

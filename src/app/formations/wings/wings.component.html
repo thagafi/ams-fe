@@ -1,0 +1,56 @@
+<section id="extended">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                       <div class="col-6">
+                            <h4 class="card-title">قائمة الأجنحة</h4>
+                       </div>
+                       <div class="col-6">
+                            <h4 class="card-title">
+                                <button type="button" class="btn btn-outline-info mr-2 mb-1" routerLink="/formations/wings/create"><i class="ft-plus-square ml-1"></i>إضافة جناح جديد</button>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="card-body table-responsive">
+                        <table class="table text-center m-0">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>اسم الجناح</th>
+                                    <th>قائد الجناح</th>
+                                    <th>منسق الجناح</th>
+                                    <th>الإجراء</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let wing of wings">
+                                    <td>{{wing.id}}</td>
+                                    
+                                    <td>{{wing.wing_name}}</td>
+                                    <td>{{wing.wing_commander.rank}} {{wing.wing_commander.first_name}} {{wing.wing_commander.last_name}}</td>
+                                    <td>{{wing.wing_coordinator.rank}} {{wing.wing_coordinator.first_name}} {{wing.wing_coordinator.last_name}}</td>
+                                    <td class="text-truncate">
+                                        <a href="javascript:;" (click)="delete(wing.id)" class="danger p-0">
+                                            <i class="ft-x font-medium-3 mr-2"></i>
+                                        </a>
+                                        <a href="javascript:;" [routerLink]="['/formations/wings', wing.id, 'edit']" class="info p-0">
+                                            <i class="ft-edit-2 font-medium-3 "></i>
+                                        </a>                                        
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <app-paginator
+        [lastPage]="lastPage"
+        (pageChanged)="load($event)"
+    ></app-paginator> -->
+</section>
